@@ -1,0 +1,36 @@
+/* 
+ * Osaka Jade Theme - Inspired by bamboo.nvim
+ * Warm jade greens with dark charcoal backgrounds
+ * Perfect for calm, focused nighttime coding
+ */
+
+/* Base colors - Deep charcoal with warm undertones */
+@define-color bg #1a1f1a;
+@define-color bg_dark #12161a;
+@define-color fg #ceceb0;
+
+/* Surface variations - Subtle layering */
+@define-color surface #252d28;
+@define-color surface_bright #2f3832;
+
+/* Text hierarchy */
+@define-color text #ceceb0;
+@define-color text_dim #8d9e7c;
+
+/* Jade accent palette - The star of the show */
+@define-color jade #71b687;
+@define-color jade_bright #96d7af;
+@define-color jade_dim #588578;
+
+/* Complementary nature colors */
+@define-color teal #7fc8a9;
+@define-color olive #a6c38d;
+@define-color bamboo #9ad04c;
+
+/* Warm accent colors */
+@define-color peach #f89f64;
+@define-color yellow #f2cc81;
+@define-color red #e46876;
+
+/* Alternative theme: Replace entire file for instant theme change */
+/* Try: Tokyo Night, Nord, Gruvbox, Catppuccin, etc. */

@@ -1,0 +1,234 @@
+@import "colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @bg;
+  color: @fg;
+}
+
+/* Launcher - distinctive jade pill */
+#custom-launcher {
+  margin: 4px 0 4px 8px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, @jade 0%, @jade_bright 100%);
+  color: @bg_dark;
+  border-radius: 20px;
+  font-size: 18px;
+  box-shadow: 0 2px 8px rgba(113, 182, 135, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#custom-launcher:hover {
+  background: linear-gradient(135deg, @jade_bright 0%, @jade 100%);
+  box-shadow: 0 4px 12px rgba(113, 182, 135, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Workspaces - organic rounded cards */
+#workspaces {
+  margin: 0 8px;
+}
+
+#workspaces button {
+  padding: 0 12px;
+  margin: 4px 3px;
+  background: @surface;
+  color: @text_dim;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+#workspaces button:hover {
+  background: @surface_bright;
+  color: @jade;
+  border-color: @jade;
+}
+
+#workspaces button.active {
+  background: @jade;
+  color: @bg_dark;
+  box-shadow: 0 0 12px rgba(113, 182, 135, 0.4);
+  border: 1px solid @jade_bright;
+}
+
+/* Submap indicator */
+#submap {
+  margin: 4px 8px 4px 0;
+  padding: 0 14px;
+  background: @peach;
+  color: @bg_dark;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+/* Center window title - clean and minimal */
+#window {
+  padding: 0 20px;
+  color: @jade_bright;
+  font-weight: 600;
+  background: transparent;
+}
+
+#window > * {
+  color: @jade_bright;
+}
+
+/* System group - cohesive card design */
+group#system {
+  margin: 4px 0;
+  background: @surface;
+  border-radius: 16px;
+  border: 1px solid @surface_bright;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#cpu,
+#memory,
+#disk {
+  padding: 0 12px;
+  margin: 0;
+  background: transparent;
+  transition: color 0.3s ease;
+}
+
+#cpu {
+  color: @jade;
+  border-radius: 16px 0 0 16px;
+}
+
+#memory {
+  color: @teal;
+  border-left: 1px solid @bg;
+  border-right: 1px solid @bg;
+}
+
+#disk {
+  color: @olive;
+  border-radius: 0 16px 16px 0;
+}
+
+#cpu:hover,
+#memory:hover,
+#disk:hover {
+  background: @surface_bright;
+}
+
+#cpu.warning { color: @yellow; }
+#cpu.critical { color: @red; animation: pulse 2s ease infinite; }
+#memory.warning { color: @yellow; }
+#memory.critical { color: @red; animation: pulse 2s ease infinite; }
+#disk.warning { color: @yellow; }
+#disk.critical { color: @red; animation: pulse 2s ease infinite; }
+
+/* Battery - dynamic visual states */
+#battery {
+  margin: 4px 6px;
+  padding: 0 14px;
+  background: @surface;
+  color: @jade_bright;
+  border-radius: 14px;
+  border: 1px solid @surface_bright;
+  transition: all 0.3s ease;
+}
+
+#battery.charging {
+  color: @jade;
+  background: linear-gradient(90deg, @surface 0%, alpha(@jade, 0.15) 100%);
+  animation: charging 3s ease-in-out infinite;
+}
+
+#battery.full {
+  color: @jade;
+}
+
+#battery.warning {
+  color: @peach;
+  border-color: @peach;
+}
+
+#battery.critical {
+  color: @red;
+  background: alpha(@peach, 0.1);
+  border-color: @red;
+  animation: blink 1s linear infinite;
+}
+
+/* Clock - elegant split design */
+#clock.time {
+  margin: 4px 0 4px 6px;
+  padding: 0 16px;
+  background: @jade;
+  color: @bg_dark;
+  border-radius: 14px 0 0 14px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: -2px 0 8px rgba(113, 182, 135, 0.3);
+}
+
+#clock.date {
+  margin: 4px 8px 4px 0;
+  padding: 0 16px;
+  background: @surface;
+  color: @jade;
+  border-radius: 0 14px 14px 0;
+  border: 1px solid @jade;
+  border-left: none;
+  font-variant: small-caps;
+}
+
+#clock:hover {
+  background: @jade_bright;
+}
+
+/* Tray - minimal and clean */
+#tray {
+  margin: 4px 8px 4px 0;
+  padding: 0 8px;
+  background: @surface;
+  border-radius: 14px;
+  border: 1px solid @surface_bright;
+}
+
+#tray > .passive {
+  opacity: 0.7;
+}
+
+#tray > .active {
+  opacity: 1;
+}
+
+#tray > .needs-attention {
+  color: @peach;
+  animation: attention 1s ease infinite;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes charging {
+  0%, 100% { box-shadow: 0 0 0 rgba(113, 182, 135, 0); }
+  50% { box-shadow: 0 0 15px rgba(113, 182, 135, 0.5); }
+}
+
+@keyframes attention {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
