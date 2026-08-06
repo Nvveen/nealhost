@@ -2,30 +2,31 @@
 
 # Define package groups as arrays. Feel free to add/remove groups.
 BASE_PACKAGES=(
+	base-devel
 	foot
-	foot-terminfo
-	less
-	neovim
+	noto-fonts
+	nvim
 	openssh
-	otf-droid-nerd
+	pipewire
+	pipewire-jack
 	polkit
+	qt6-multimedia-ffmpeg
 	sddm
-	stow
 	starship
+	stow
+	thunar
+	ttf-firacode-nerd
+	ttf-font-nerd
 	uwsm
-	vim
-	xdg-user-dirs
+	xdg-desktop-portal
 	zsh
 )
 
 HYPERLAND_PACKAGES=(
-	hyprcursor
-	hypridle
 	hyprland
-	hyprlock
 	hyprpaper
 	hyprpolkitagent
-	mako # notification daemon
+	mako
 	waybar
 	xdg-desktop-portal-hyprland
 )

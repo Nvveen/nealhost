@@ -58,8 +58,8 @@ setup_dotfiles() {
 
 system_afterinstall() {
     log "Running system after-install tasks..."
-    sudo mkdir -p /etc/sddm.conf.d
-    echo -e "[General]\nSession=hyprland-uwsm" | sudo tee /etc/sddm.conf.d/hyprland.conf >/dev/null
+    sudo sysetmctl enable sshd
+    sudo chsh -s /usr/bin/zsh $USER
 }
 
 main() {
